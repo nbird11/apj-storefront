@@ -23,6 +23,7 @@
     <modules>
         <module>tutorial8-1</module>
         <module>tutorial8-2</module>
+        <module>web</module>
     </modules>
 
 </project>
