@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Remove Animal</title>
+</head>
+<body>
+<h1>Remove Animal</h1>
+<form th:action="@{/removeAnimal}" method="post">
+    <input type="number" name="id" placeholder="Animal ID" />
+    <select name="method">
+        <option value="restTemplate">RestTemplate</option>
+        <option value="webClient">WebClient</option>
+    </select>
+    <button type="submit">Remove Animal</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Get Animal by ID</title>
+</head>
+<body>
+<h1>Get Animal by ID</h1>
+<form th:action="@{/getAnimalById}" method="post">
+    <input type="number" name="id" placeholder="Animal ID" />
+    <select name="method">
+        <option value="restTemplate">RestTemplate</option>
+        <option value="webClient">WebClient</option>
+    </select>
+    <button type="submit">Get Animal</button>
+</form>
+<div th:if="${animal}">
+    <p><strong>Name:</strong> <span th:text="${animal.name}"></span></p>
+    <p><strong>Species:</strong> <span th:text="${animal.species}"></span></p>
+</div>
+<div th:if="${method}">
+    <p>Method Used: <span th:text="${method}"></span></p>
+</div>
+</body>
+</html>

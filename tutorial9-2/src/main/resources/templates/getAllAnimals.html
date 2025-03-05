@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Get All Animals</title>
+</head>
+<body>
+<h1>All Animals</h1>
+<form th:action="@{/getAllAnimals}" method="get">
+    <select name="method">
+        <option value="restTemplate">RestTemplate</option>
+        <option value="webClient">WebClient</option>
+    </select>
+    <button type="submit">Get Animals</button>
+</form>
+<div th:if="${animals}">
+    <ul>
+        <li th:each="animal : ${animals}">
+            <span th:text="${animal.name}"></span> - <span th:text="${animal.species}"></span>
+        </li>
+    </ul>
+</div>
+<div th:if="${method}">
+    <p>Method Used: <span th:text="${method}"></span></p>
+</div>
+</body>
+</html>
