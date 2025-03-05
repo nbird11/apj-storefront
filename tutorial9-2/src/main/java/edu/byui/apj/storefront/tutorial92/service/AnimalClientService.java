@@ -26,8 +26,12 @@ public class AnimalClientService {
     }
 
     public List<Animal> getAllAnimalsRestTemplate() {
-`        ResponseEntity<List<Animal>> response = restTemplate.exchange(animalServiceUrl + "/animals", HttpMethod.GET, null, new ParameterizedTypeReference<>() {
-        });
+        ResponseEntity<List<Animal>> response = restTemplate.exchange(
+            animalServiceUrl + "/animals",
+            HttpMethod.GET,
+            null,
+            new ParameterizedTypeReference<>() {
+            });
         return response.getBody();
     }
 
