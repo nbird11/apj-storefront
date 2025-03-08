@@ -25,6 +25,7 @@
     <module>tutorial8-2</module>
     <module>tutorial9-1</module>
     <module>tutorial9-2</module>
+    <module>api</module>
     <module>web</module>
   </modules>
 
