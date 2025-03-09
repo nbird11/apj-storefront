@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APJ Storefront - Computer Science Pioneers</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+    <script src="product-listing.js" defer></script>
+</head>
+<body>
+<nav>
+    <div class="nav-container">
+        <div class="logo">APJ Storefront</div>
+        <div class="search-cart">
+            <div class="search-container">
+                <input type="text" id="search" class="search-input" placeholder="Search names and specialties...">
+            </div>
+            <button class="cart-button">
+                🛒 Cart (0)
+            </button>
+        </div>
+    </div>
+</nav>
+
+<div class="hero">
+    <h2>Product Listings</h2>
+</div>
+<main>
+    <aside>
+        <h3>Sort by:</h3>
+        <div>
+            <select id="sort" name="sort">
+                <option></option>
+                <option value="price">Price</option>
+                <option value="name">Name</option>
+            </select>
+        </div>
+        <hr>
+        <h3>Filter by:</h3>
+        <div>.</div>
+        <p>Price:</p>
+        <div>
+            $<input name="minPrice" id="minPrice" size="3"> to $<input name="maxPrice" id="maxPrice" size="3">
+        </div>
+        <p>Specialty:</p>
+        <div>
+            <select id="specialty" name="specialty">
+                <option></option>
+                <option value="Algorithms_Theory">Algorithms & Theory</option>
+                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                <option value="Computer Architecture">Computer Architecture</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="Database Systems">Database Systems</option>
+                <option value="Graphics_HCI">Graphics & HCI</option>
+                <option value="Networking_Internet">Networking & Internet</option>
+                <option value="Operating Systems">Operating Systems</option>
+                <option value="Programming Languages">Programming Languages</option>
+                <option value="Software Engineering">Software Engineering</option>
+            </select>
+        </div>
+        <div class="aside-button-container">
+            <button id="apply-filters" type="button">Apply Filters</button>
+        </div>
+        <div class="aside-button-container">
+            <button id="clear-filters" type="button">Clear Filters</button>
+        </div>
+    </aside>
+    <section class="product-listing-section">
+        <div class="pagination">
+            <button id="back-page">&nbsp;&lt;&nbsp;</button>
+            <p>Page <span id="page-number">1</span></p>
+            <button id="forward-page">&nbsp;&gt;&nbsp;</button>
+        </div>
+        <div class="card-grid" id="product-listing-cards">
+            <!-- Cards will be inserted here by JavaScript -->
+        </div>
+    </section>
+</main>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h5>About Us</h5>
+            <p style="color: #9ca3af;">Celebrating computer science history through collectible cards.</p>
+        </div>
+        <div class="footer-section">
+            <h5>Quick Links</h5>
+            <ul>
+                <li>New Releases</li>
+                <li>Popular Cards</li>
+                <li>Special Editions</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h5>Customer Service</h5>
+            <ul>
+                <li>Contact Us</li>
+                <li>Shipping Policy</li>
+                <li>Returns & Refunds</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
