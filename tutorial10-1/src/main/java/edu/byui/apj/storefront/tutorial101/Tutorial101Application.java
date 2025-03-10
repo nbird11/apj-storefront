@@ -19,9 +19,9 @@ public class Tutorial101Application {
         return (args) -> {
             log.debug("""
                 Slf4j logger class:
-                -----------------------------------
-                {}
-                -----------------------------------\
+                    -----------------------------------
+                    {}
+                    -----------------------------------\
                 """, log.getClass());
 
             // save a few customers
