@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APJ Storefront - Computer Science Pioneers</title>
-    <link rel="stylesheet" href="index.css">
-    <script src="index.js" defer></script>
-
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <script src="js/index.js" defer></script>
+    <script src="js/cart.js" defer></script>
 </head>
 <body>
 <nav>
@@ -17,8 +18,14 @@
                 <input type="text" id="search" class="search-input" placeholder="Search names and specialties...">
             </div>
             <button class="cart-button">
-                🛒 Cart (0)
+                🛒 Cart (<span id="cart-item-count">0</span>)
             </button>
+        </div>
+        <div class="cart-container">
+            <div class="cart-widget" id="cartWidget">
+                <p><strong>Your Cart:</strong></p>
+                <ul id="cartItems"></ul>
+            </div>
         </div>
     </div>
 </nav>

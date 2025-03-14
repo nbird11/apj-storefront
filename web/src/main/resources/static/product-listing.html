@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APJ Storefront - Computer Science Pioneers</title>
-    <link rel="stylesheet" href="index.css">
-    <script src="index.js" defer></script>
-    <script src="product-listing.js" defer></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <script src="js/index.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/product-listing.js" defer></script>
 </head>
 <body>
 <nav>
@@ -17,8 +19,14 @@
                 <input type="text" id="search" class="search-input" placeholder="Search names and specialties...">
             </div>
             <button class="cart-button">
-                🛒 Cart (0)
+                🛒 Cart (<span id="cart-item-count">0</span>)
             </button>
+        </div>
+        <div class="cart-container">
+            <div class="cart-widget" id="cartWidget">
+                <p><strong>Your Cart:</strong></p>
+                <ul id="cartItems"></ul>
+            </div>
         </div>
     </div>
 </nav>
@@ -36,12 +44,16 @@
                 <option value="name">Name</option>
             </select>
         </div>
+        <div class="aside-button-container">
+            <button id="apply-sort" type="button">Sort</button>
+        </div>
         <hr>
-        <h3>Filter by:</h3>
-        <div>.</div>
         <p>Price:</p>
         <div>
             $<input name="minPrice" id="minPrice" size="3"> to $<input name="maxPrice" id="maxPrice" size="3">
+        </div>
+        <div class="aside-button-container">
+            <button id="apply-price-filter" type="button">Filter By Price</button>
         </div>
         <p>Specialty:</p>
         <div>
@@ -60,10 +72,7 @@
             </select>
         </div>
         <div class="aside-button-container">
-            <button id="apply-filters" type="button">Apply Filters</button>
-        </div>
-        <div class="aside-button-container">
-            <button id="clear-filters" type="button">Clear Filters</button>
+            <button id="apply-specialty-filter" type="button">Filter By Specialty</button>
         </div>
     </aside>
     <section class="product-listing-section">
