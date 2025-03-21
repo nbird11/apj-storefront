@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Trading Card Site</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/order-confirmation.css">
+    <script src="js/index.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/order-confirmation.js" defer></script>
+</head>
+<body>
+<nav>
+    <div class="nav-container">
+        <div class="logo">APJ Storefront</div>
+        <div class="search-cart">
+            <div class="search-container">
+                <input type="text" id="search" class="search-input" placeholder="Search names and specialties...">
+            </div>
+            <button class="cart-button">
+                🛒 Cart (<span id="cart-item-count">0</span>)
+            </button>
+        </div>
+        <div class="cart-container">
+            <div class="cart-widget" id="cartWidget">
+                <p><strong>Your Cart:</strong></p>
+                <ul id="cartItems"></ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="confirmation-banner">
+        <h1>Thank You For Your Order!</h1>
+        <p>A confirmation email has been sent to <span id="customer-email"></span></p>
+    </div>
+
+    <div class="order-info">
+        <div class="order-header">
+            <div>
+                <h2>Order Confirmation</h2>
+            </div>
+            <div>
+                <div class="order-date" id="order-date"></div>
+                <div class="order-id" id="order-id"></div>
+            </div>
+        </div>
+
+        <div class="customer-info">
+            <div class="customer-details">
+                <h3 class="section-title">Customer Information</h3>
+                <div>
+                    <span class="info-label">Name:</span>
+                    <span id="customer-name"></span>
+                </div>
+                <div>
+                    <span class="info-label">Email:</span>
+                    <span id="customer-email-info"></span>
+                </div>
+                <div>
+                    <span class="info-label">Phone:</span>
+                    <span id="customer-phone"></span>
+                </div>
+            </div>
+
+            <div class="shipping-details">
+                <h3 class="section-title">Shipping Address</h3>
+                <div id="shipping-address"></div>
+            </div>
+        </div>
+
+        <div class="cart-items">
+            <h3 class="section-title">Order Items</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Card ID</th>
+                    <th class="quantity">Qty</th>
+                    <th class="price">Price</th>
+                    <th class="price">Total</th>
+                </tr>
+                </thead>
+                <tbody id="order-items">
+                <!-- Items will be inserted here via JavaScript -->
+                </tbody>
+            </table>
+
+            <div class="order-totals">
+                <div class="total-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal"></span>
+                </div>
+                <div class="total-row">
+                    <span>Tax:</span>
+                    <span id="tax"></span>
+                </div>
+                <div class="total-row grand-total">
+                    <span>Total:</span>
+                    <span id="total"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="additional-info">
+        <h3 class="section-title">Additional Information</h3>
+        <div>
+            <span class="info-label">Order Notes:</span>
+            <div class="order-notes" id="order-notes">
+                <!-- Notes will be inserted here via JavaScript -->
+            </div>
+        </div>
+
+        <button class="print-button" onclick="window.print()">Print Order</button>
+    </div>
+</div>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h5>About Us</h5>
+            <p style="color: #9ca3af;">Celebrating computer science history through collectible cards.</p>
+        </div>
+        <div class="footer-section">
+            <h5>Quick Links</h5>
+            <ul>
+                <li>New Releases</li>
+                <li>Popular Cards</li>
+                <li>Special Editions</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h5>Customer Service</h5>
+            <ul>
+                <li>Contact Us</li>
+                <li>Shipping Policy</li>
+                <li>Returns & Refunds</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
