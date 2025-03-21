@@ -4,16 +4,19 @@ import edu.byui.apj.storefront.db.model.Cart;
 import edu.byui.apj.storefront.db.model.Item;
 import edu.byui.apj.storefront.db.repository.CartRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
+import java.util.List;
 
 @Slf4j
 @Service
 public class CartService {
-    @Autowired
-    private CartRepository cartRepository;
+
+    private final CartRepository cartRepository;
+
+    public CartService(CartRepository cartRepository) {
+        this.cartRepository = cartRepository;
+    }
 
     public Cart addItemToCart(String cartId, Item item) {
         // Find the cart
@@ -63,6 +66,14 @@ public class CartService {
 
     public Cart saveCart(Cart cart){
         return cartRepository.save(cart);
+    }
+
+    public List<Cart> getCartsWithoutOrders() {
+        return cartRepository.findCartsWithoutOrders();
+    }
+
+    public void removeCart(String cartId) {
+        cartRepository.deleteById(cartId);
     }
 }
 
