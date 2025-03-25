@@ -14,9 +14,15 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 @Slf4j
 public class OrderConfirmationConsumer {
 
+    @Value("${db.service.url}")
+    private String dbServiceUrl;
+
     @JmsListener(destination = "orderQueue")
-    public void receiveOrderConfirmation(@Value("${db.service.url}") String dbServiceUrl, String orderId) {
-        log.info("Received order confirmation request for orderId {} ...", orderId);
+    public void receiveOrderConfirmation(String orderId) {
+        log.info("Received order confirmation request for orderId {}...", orderId);
+        log.debug("DB Service URL: {}", dbServiceUrl);
+        log.debug("Order ID: {}", orderId);
+        log.debug("Full path: {}", dbServiceUrl + "/order/" + orderId);
         try {
             CardOrder order = WebClient.create(dbServiceUrl).get()
                 .uri("/order/{orderId}", orderId)

@@ -4,6 +4,7 @@ import edu.byui.apj.storefront.model.Cart;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatusCode;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -26,7 +27,7 @@ public class CartCleanupJob {
     public List<Cart> getCartsWithoutOrders() {
         try {
             List<Cart> noOrderCarts = webClient.get()
-                .uri("/carts/noorder")
+                .uri("/cart/noorder")
                 .retrieve()
                 .onStatus(HttpStatusCode::isError, ClientResponse::createException)
                 .bodyToFlux(Cart.class)
@@ -46,7 +47,7 @@ public class CartCleanupJob {
     public void cleanupCart(String cartId) {
         try {
             webClient.delete()
-                .uri("/carts/{cartId}", cartId)
+                .uri("/cart/{cartId}", cartId)
                 .retrieve()
                 .onStatus(HttpStatusCode::isError, ClientResponse::createException)
                 .bodyToFlux(Cart.class)
@@ -62,6 +63,7 @@ public class CartCleanupJob {
         }
     }
 
+    @Scheduled(cron = "0 0 3 * * *")
     public void cleanupCarts() {
         List<Cart> noOrderCarts = getCartsWithoutOrders();
         ExecutorService executor = Executors.newFixedThreadPool(2);

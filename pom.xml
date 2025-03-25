@@ -21,12 +21,12 @@
   </properties>
 
   <modules>
+    <module>model</module>
+    <module>web</module>
     <module>api</module>
     <module>api-mongo</module>
     <module>db</module>
     <module>jms</module>
-    <module>model</module>
-    <module>web</module>
   </modules>
 
 </project>
