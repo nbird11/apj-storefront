@@ -20,6 +20,12 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<CardOrder> saveOrder(@RequestBody CardOrder order) {
+        // Validate required fields
+        if (order == null || order.getTotal() == null || order.getCustomer() == null 
+            || order.getCart() == null || order.getShippingAddress() == null) {
+            return ResponseEntity.badRequest().build();
+        }
+        
         CardOrder savedOrder = orderService.saveOrder(order);
         return ResponseEntity.ok(savedOrder);
     }
