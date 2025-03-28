@@ -90,7 +90,7 @@ public class TradingCardService {
     public List<TradingCard> getCardsSearch(String query) {
         return tradingCards.stream()
             .filter(card -> clean(card.getName()).contains(clean(query))
-                || clean(card.getSpecialty()).contains(clean(query)))
+                || clean(card.getContribution()).contains(clean(query)))
             .toList();
     }
 
