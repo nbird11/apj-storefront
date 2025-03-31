@@ -85,4 +85,29 @@ document.querySelector("#theory-card")?.addEventListener("click", () => {
     window.location.href = "product-listing.html?specialty=Algorithms_Theory";
 })
 
+function getUser(){
+    fetch(`http://localhost:8080/user/me`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error getting username! Status: ${response.status}`)
+            }
+            return response.text()
+        })
+        .then(data => {
+            if (data.length !== 0) {
+                username = data
+            }
+            else{
+                console.log("No data found for login - not logged in.")
+            }
+            document.getElementById("username").innerText = username
+        })
+        .catch(error => {
+            console.error("Error getting login info:", error)
+        })
+}
+
+let username = "Not Logged In"
+
 fetchFeaturedCards()
+getUser()

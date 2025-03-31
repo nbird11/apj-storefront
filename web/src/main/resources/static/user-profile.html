@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APJ Storefront - Computer Science Pioneers</title>
+    <title>User Profile</title>
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/user-profile.css">
     <script src="js/index.js" defer></script>
-    <script src="js/cart.js" defer></script>
 </head>
 <body>
 <nav>
@@ -32,43 +31,45 @@
         </div>
     </div>
 </nav>
-
-<div class="hero">
-    <h2>Computer Science Pioneers</h2>
-    <p>Celebrating the Innovators Behind Java and Modern Computing</p>
-    <button class="cta-button">Explore Collection</button>
-</div>
-
-<section class="featured-section">
-    <div class="section-header">
-        <h3>Featured Pioneers</h3>
-        <a href="product-listing.html">View All →</a>
-    </div>
-    <div class="card-grid" id="featured-cards">
-        <!-- Cards will be inserted here by JavaScript -->
-    </div>
-</section>
-
-<section class="categories">
-    <div class="categories-container">
-        <h3>Browse Categories</h3>
-        <div class="categories-grid">
-            <div class="category-card" id="java-pioneers-card">
-                <h4>Java Pioneers</h4>
-                <p>Discover the minds behind Java's creation and evolution</p>
-            </div>
-            <div class="category-card" id="programming-languages-card">
-                <h4>Programming Languages</h4>
-                <p>Explore creators of influential programming languages</p>
-            </div>
-            <div class="category-card" id="theory-card">
-                <h4>Computer Science Theory</h4>
-                <p>Learn about theoretical computer science pioneers</p>
-            </div>
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="profile-picture">
+            <img src="img/placeholder.webp" alt="Profile Picture">
         </div>
     </div>
-</section>
 
+    <div class="profile-content">
+        <div class="profile-name">APJ Storefront User</div>
+        <div class="profile-role">Site Creator</div>
+
+        <div class="profile-stats">
+            <div class="stat-item">
+                <div class="stat-number">24</div>
+                <div class="stat-label">Cards Purchased</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Categories</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Years Membership</div>
+            </div>
+        </div>
+
+        <div class="profile-about">
+            <div class="about-title">About Me</div>
+            <div class="about-text">
+                I'm a passionate software engineer specializing in microservices architecture
+                and cloud-native applications. I'm experienced in Java, Spring Boot,
+                and distributed systems design. Oh, and I made this awesome website.
+            </div>
+        </div>
+        <form action="/perform-logout" method="POST">
+            <button type="submit">LOGOUT</button>
+        </form>
+    </div>
+</div>
 <footer>
     <div class="footer-container">
         <div class="footer-section">
@@ -93,6 +94,5 @@
         </div>
     </div>
 </footer>
-<div id="homepage"></div>
 </body>
 </html>

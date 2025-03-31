@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APJ Storefront - Computer Science Pioneers</title>
+    <title>Order Confirmation - Trading Card Site</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="js/index.js" defer></script>
     <script src="js/cart.js" defer></script>
 </head>
@@ -28,47 +30,16 @@
             </div>
         </div>
         <div class="user-profile">
-            <p><a href="user-profile.html">👤 <span id="username">User Profile</span></a></p>
+            <p><a href="user-profile.html">👤 User Profile</a></p>
         </div>
     </div>
 </nav>
-
-<div class="hero">
-    <h2>Computer Science Pioneers</h2>
-    <p>Celebrating the Innovators Behind Java and Modern Computing</p>
-    <button class="cta-button">Explore Collection</button>
-</div>
-
-<section class="featured-section">
-    <div class="section-header">
-        <h3>Featured Pioneers</h3>
-        <a href="product-listing.html">View All →</a>
-    </div>
-    <div class="card-grid" id="featured-cards">
-        <!-- Cards will be inserted here by JavaScript -->
-    </div>
-</section>
-
-<section class="categories">
-    <div class="categories-container">
-        <h3>Browse Categories</h3>
-        <div class="categories-grid">
-            <div class="category-card" id="java-pioneers-card">
-                <h4>Java Pioneers</h4>
-                <p>Discover the minds behind Java's creation and evolution</p>
-            </div>
-            <div class="category-card" id="programming-languages-card">
-                <h4>Programming Languages</h4>
-                <p>Explore creators of influential programming languages</p>
-            </div>
-            <div class="category-card" id="theory-card">
-                <h4>Computer Science Theory</h4>
-                <p>Learn about theoretical computer science pioneers</p>
-            </div>
-        </div>
-    </div>
-</section>
-
+<form action="/perform-login" method="post">
+    <div><label> User Name : <input type="text" name="username"/> </label></div>
+    <div><label> Password: <input type="password" name="password"/> </label></div>
+    <div><input type="submit" value="Sign In"/></div>
+    <div><p id="login-error"></p></div>
+</form>
 <footer>
     <div class="footer-container">
         <div class="footer-section">
@@ -93,6 +64,12 @@
         </div>
     </div>
 </footer>
-<div id="homepage"></div>
+<script>
+    const urlParams = new URLSearchParams(window.location.search)
+    const error = urlParams.get("error")
+    if (error){
+        document.getElementById("login-error").innerText = error
+    }
+</script>
 </body>
 </html>
